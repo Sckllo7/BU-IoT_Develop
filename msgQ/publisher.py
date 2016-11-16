@@ -10,8 +10,6 @@ import random
 
 hostname = os.uname()[1]
 
-mqttc = mqtt.Client("python_pub")
-mqttc.connect("buhadoop", 1883)
 
 while (1) :
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
@@ -27,9 +25,12 @@ while (1) :
     jsonTemp = json.dumps(temp)
     jsonHumi = json.dumps(humi)
 
+    mqttc = mqtt.Client("python_pub")
+    mqttc.connect("buhadoop", 1883)
+
     if humidity is not None and temperature is not None:
-            mqttc.publish("Home/LvRoom/Temp", jsonTemp)
-            mqttc.publish("Home/LvRoom/Humi", jsonHumi)
+            mqttc.publish("Home/Univer/Temp", jsonTemp)
+            mqttc.publish("Home/Univer/Humi", jsonHumi)
 
     else:
             print 'Failed to get reading. Try again!'

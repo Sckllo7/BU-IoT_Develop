@@ -10,7 +10,6 @@ import random
 
 hostname = os.uname()[1]
 
-
 while (1) :
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
 

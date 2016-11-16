@@ -34,6 +34,6 @@ while (1) :
     else:
             print 'Failed to get reading. Try again!'
 
+    time.sleep(2)
     mqttc.disconnect()
 #    time.sleep(random.randrange(1, 4))
-    time.sleep(0.5)

@@ -10,14 +10,19 @@ import random
 
 hostname = os.uname()[1]
 
+count = 0
+
 while (1) :
+    count += 1
     humidity, temperature = Adafruit_DHT.read_retry(11, 4)
 
-    temp = { 'hostname' : hostname,
+    temp = { 'count' : count,
+             'hostname' : hostname,
              'name' : 'Temperature',
              'value' : temperature }
 
-    humi = { 'hostname' : hostname,
+    humi = { 'count' : count,
+             'hostname' : hostname,
              'name' : 'Humidity',
              'value' : humidity }
 

@@ -28,7 +28,7 @@ while (1) :
     jsonHumi = json.dumps(humi)
 
     if humidity is not None and temperature is not None:
-#            mqttc.publish("Home/LvRoom/Temp", jsonTemp)
+            mqttc.publish("Home/LvRoom/Temp", jsonTemp)
             mqttc.publish("Home/LvRoom/Humi", jsonHumi)
 
     else:

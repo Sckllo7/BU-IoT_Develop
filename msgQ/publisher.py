@@ -29,16 +29,19 @@ while (1) :
     jsonTemp = json.dumps(temp)
     jsonHumi = json.dumps(humi)
 
-    if (humidity != pHumidity & temperature != pTemperature) | (time.time() - stamp) > 60 :
+    if humidity != pHumidity and temperature != pTemperature or (time.time() - stamp) > 60 :
 	swit = 3
-    elif humidity != pHumidity & temperature == pTemperature :
+    elif humidity != pHumidity and temperature == pTemperature :
 	swit = 2
-    elif humidity == pHumidity & temperature != pTemperature :
+    elif humidity == pHumidity and temperature != pTemperature :
 	swit = 1
-    else
+    else :
 	continue;
 
     stamp = time.time()
+
+    pHumidity = humidity
+    pTemperature = temperature
 
     mqttc = mqtt.Client("python_pub")
     mqttc.connect("buhadoop", 1883)

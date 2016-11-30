@@ -50,9 +50,9 @@ while (1) :
 	    if swit == 3 :
 		    mqttc.publish("Home/Univer/Temp", jsonTemp)
 		    mqttc.publish("Home/Univer/Humi", jsonHumi)
-	    elif swit == 2:
-		    mqttc.publish("Home/Univer/Temp", jsonTemp)
 	    elif swit == 1:
+		    mqttc.publish("Home/Univer/Temp", jsonTemp)
+	    elif swit == 2:
 		    mqttc.publish("Home/Univer/Humi", jsonHumi)
 
     else:
